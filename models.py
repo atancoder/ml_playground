@@ -1,5 +1,3 @@
-from functools import partial
-
 import numpy as np
 from sklearn.kernel_approximation import RBFSampler
 from sklearn.linear_model import LogisticRegression
