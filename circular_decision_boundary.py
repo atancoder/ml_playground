@@ -190,8 +190,8 @@ def gaussian_svm_model(plot=False):
 
 
 # linear_lr_model(plot=True)
-quadratic_lr_model(plot=True)
+# quadratic_lr_model(plot=True)
 # gaussian_lr_model(plot=True)
 # linear_svm_model(plot=True)
-# quadratic_svm_model(plot=True)  # this is the best classifier
+quadratic_svm_model(plot=True)  # this is the best classifier
 # gaussian_svm_model(plot=True)
