@@ -19,6 +19,15 @@ def plot_decision_boundary(training_data, training_labels, predict_fn):
     plt.show()
 
 
+def plot_regression_line(training_data, training_labels, predict_fn):
+    # Plot the data points
+    X = np.array(training_data)
+    y = np.array(training_labels)
+    plt.scatter(X, y)
+    plt.plot(X, predict_fn(X), color="red")
+    plt.show()
+
+
 def score(score_fn, training_data, training_labels, test_data, test_labels):
     training_accuracy = score_fn(training_data, training_labels)
     test_accuracy = score_fn(test_data, test_labels)
