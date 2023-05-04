@@ -22,6 +22,13 @@ Quadratic generalizes better though to points outside the training set
 <img width="560" alt="image" src="https://user-images.githubusercontent.com/10254642/236089913-e0a8434b-5f0f-4511-a8c0-3151c37d8b9a.png">
 Gaussian was the best one that can classify. It was important to choose the right gamma for this to work. 
 
+## Hyperbola Decision Boundary
+<img width="594" alt="image" src="https://user-images.githubusercontent.com/10254642/236091342-d67503ea-5ac9-4e7c-87c1-6e0f32bf03a4.png">
+Quadratic fits it perfectly.
+
+<img width="536" alt="image" src="https://user-images.githubusercontent.com/10254642/236091381-4f974222-b55c-4e81-ab75-2e200d80c69c.png">
+Gaussian did as well
+
 ## Observations
 Logistic Regression vs SVM performs very similarly. What's more important is how we model the data. Is it linear, polynomial, or do we use RBF? It seems like using RBF is a safe choice, as it fits the data very well in all shapes and sizes. The problem with using RBF is that it doesn't generalize well to data outside our training set range. It's also much harder to deduce the real pattern of the data (vs in a linear model, we can say what features most contribute to the classifier). 
 
