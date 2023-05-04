@@ -46,6 +46,6 @@ test_data, test_labels = generate_train_data()
 
 # linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
 # quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-gaussian_svm_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
-)
+# gaussian_svm_model(
+#     training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
+# )
