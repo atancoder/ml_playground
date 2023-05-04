@@ -18,7 +18,7 @@ Guassian logistic regression
 Quadratic generalizes better though to points outside the training set
 <img width="577" alt="image" src="https://user-images.githubusercontent.com/10254642/236077243-dfb84944-e597-47f7-972c-73c613c1a929.png">
 
-## Double Circle Decision Boundary
+## Double Decision Boundary
 <img width="560" alt="image" src="https://user-images.githubusercontent.com/10254642/236089913-e0a8434b-5f0f-4511-a8c0-3151c37d8b9a.png">
 Gaussian was the best one that can classify. It was important to choose the right gamma for this to work. 
 
