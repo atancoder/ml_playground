@@ -24,7 +24,10 @@ def plot_regression_line(training_data, training_labels, predict_fn):
     X = np.array(training_data)
     y = np.array(training_labels)
     plt.scatter(X, y)
-    plt.plot(X, predict_fn(X), color="red")
+    x1_min = X.min() - 1
+    x1_max = X.max() + 1
+    xx1 = np.linspace(x1_min, x1_max, 100)
+    plt.plot(xx1, predict_fn(xx1.reshape(len(xx1), 1)), c="red")
     plt.show()
 
 
