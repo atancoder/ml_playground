@@ -9,7 +9,7 @@ Note that Gaussian doesn't generalize well to data points outside of the trainin
 
 <img width="562" alt="image" src="https://user-images.githubusercontent.com/10254642/236103414-01aa511c-6f2f-48eb-9377-e11322955adf.png">
 
-But if we apply regularization with a very small alpha, Gaussian works well
+But if we apply regularization with a very small alpha, Gaussian works well. The smaller the alpha, the more we penalize complexity
 
 <img width="558" alt="image" src="https://user-images.githubusercontent.com/10254642/236104260-52917e22-70dd-43f4-9057-29e7bedda95c.png">
 
