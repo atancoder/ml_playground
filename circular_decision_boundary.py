@@ -65,6 +65,7 @@ test_data, test_labels = generate_test_data()
 # gaussian_lr_model(
 #     training_data, training_labels, test_data, test_labels, gamma=5, plot=True
 # )
+
 # returns nothing b/c it's not linearly separable
 # linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
 # quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)

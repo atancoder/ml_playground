@@ -16,6 +16,9 @@ def linear_lr_model(training_data, training_labels, test_data, test_labels, plot
     intercept = clf.intercept_[0]
     print("Weights: ", weights)
     print("Intercept: ", intercept)
+    slope = -weights[0] / weights[1]
+    new_intercept = -intercept / weights[1]
+    print(f"Formula is y = {slope}x + {new_intercept}")
 
     score(clf.score, training_data, training_labels, test_data, test_labels)
     if plot:
