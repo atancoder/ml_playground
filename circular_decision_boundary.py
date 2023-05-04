@@ -32,8 +32,8 @@ def generate_train_data():
     data = []
     labels = []
     for _ in range(1000):
-        x = random.randint(0, 30)
-        y = random.randint(0, 10)
+        x = random.uniform(0, 10)
+        y = random.uniform(0, 10)
         data.append((x, y))
         if in_range(x, y):
             labels.append(1)
@@ -47,8 +47,8 @@ def generate_test_data():
     data = []
     labels = []
     for _ in range(100):
-        x = random.randint(X_MIN_BOUNDARY, X_MAX_BOUNDARY)
-        y = random.randint(Y_MIN_BOUNDARY, Y_MAX_BOUNDARY)
+        x = random.uniform(X_MIN_BOUNDARY, X_MAX_BOUNDARY)
+        y = random.uniform(Y_MIN_BOUNDARY, Y_MAX_BOUNDARY)
         data.append((x, y))
         if in_range(x, y):
             labels.append(1)
@@ -61,14 +61,14 @@ training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_test_data()
 
 # linear_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-# quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
+quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
 # gaussian_lr_model(
 #     training_data, training_labels, test_data, test_labels, gamma=5, plot=True
 # )
 
 # returns nothing b/c it's not linearly separable
 # linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-# quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
+quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
 # gaussian_svm_model(
 #     training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
 # )

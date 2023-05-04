@@ -28,9 +28,9 @@ def linear_lr_model(training_data, training_labels, test_data, test_labels, plot
 def quadratic_lr_model(
     training_data, training_labels, test_data, test_labels, plot=False
 ):
-    # Adding scaler actually messes up the accuracy
     pipeline = Pipeline(
         [
+            ("scaler", StandardScaler()),
             ("poly", PolynomialFeatures(degree=2)),
             ("clf", LogisticRegression()),
         ]
@@ -76,6 +76,7 @@ def quadratic_svm_model(
 ):
     pipeline = Pipeline(
         [
+            ("scaler", StandardScaler()),
             ("poly", PolynomialFeatures(degree=2)),
             ("clf", SVC(kernel="linear")),
         ]

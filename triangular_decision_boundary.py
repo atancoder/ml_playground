@@ -9,7 +9,7 @@ from models import (
     quadratic_svm_model,
 )
 
-A_SLOPE, A_INTERCEPT = 0.5, -1
+A_SLOPE, A_INTERCEPT = 2, -1
 B_SLOPE, B_INTERCEPT = -2, 10
 
 
@@ -51,7 +51,7 @@ test_data, test_labels = generate_train_data()
 # linear_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
 # quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
 # gaussian_lr_model(
-#     training_data, training_labels, test_data, test_labels, gamma=5, plot=True
+#     training_data, training_labels, test_data, test_labels, gamma=3, plot=True
 # )
 
 # returns nothing b/c it's not linearly separable
