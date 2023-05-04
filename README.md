@@ -6,6 +6,7 @@ Linear logistic regression. But all clf_models were able to separate the data ve
 
 ## Rectangle Decision Boundary
 Quadratics approximate these quite well.
+
 <img width="291" alt="image" src="https://user-images.githubusercontent.com/10254642/236064122-d777a8ea-6b6c-4e3c-8005-515cc65ccb67.png">
 
 <img width="570" alt="image" src="https://user-images.githubusercontent.com/10254642/236093494-7a409be0-a245-4a5f-af9e-f1bd301a72ee.png">
