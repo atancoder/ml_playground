@@ -49,14 +49,14 @@ training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
 
 # linear_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-# quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-# gaussian_lr_model(
-#     training_data, training_labels, test_data, test_labels, gamma=3, plot=True
-# )
+quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
+gaussian_lr_model(
+    training_data, training_labels, test_data, test_labels, gamma=3, plot=True
+)
 
 # returns nothing b/c it's not linearly separable
 # linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-# quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-# gaussian_svm_model(
-#     training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
-# )
+quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
+gaussian_svm_model(
+    training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
+)
