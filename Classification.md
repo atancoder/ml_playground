@@ -13,6 +13,15 @@ Quadratics approximate these quite well.
 
 Polynomial logistic regression w/ degree=2
 
+## Quadratic Decision Boundary W/ 1 Feature
+1D feature where we positively classify if 3 <= x <= 8
+
+We're able to get the following decision boundary with a polynomial kernel w/ degree = 2. 
+
+![image](https://user-images.githubusercontent.com/10254642/236303035-3b019a4c-52aa-4928-8789-2f076c8cb67c.png)
+
+This shows us that quadratic kernels are pretty good at classifying features that have a sweet spot (in this case, x=[3,8] was a sweet spot). 
+
 
 ## Triangular Decision Boundary
 
