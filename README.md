@@ -2,7 +2,7 @@
 ## Linear Decision Boundary
 
 <img width="562" alt="image" src="https://user-images.githubusercontent.com/10254642/236076600-2cc3ab68-a1dd-4de7-bb25-a5a30e009e0f.png">
-Linear logistic regression
+Linear logistic regression. But all clf_models were able to separate the data very well
 
 ## Circular Decision Boundary
 
