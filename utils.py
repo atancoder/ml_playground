@@ -36,3 +36,8 @@ def score(score_fn, training_data, training_labels, test_data, test_labels):
     test_accuracy = score_fn(test_data, test_labels)
     print("Training Accuracy: ", training_accuracy)
     print("Test Accuracy: ", test_accuracy)
+
+
+import sys
+
+print(sys.path)

@@ -1,6 +1,6 @@
 import random
 
-from clf_models import (
+from .clf_models import (
     gaussian_lr_model,
     gaussian_svm_model,
     linear_lr_model,
@@ -39,13 +39,13 @@ training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
 
 linear_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-gaussian_lr_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.1, plot=True
-)
+# quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
+# gaussian_lr_model(
+#     training_data, training_labels, test_data, test_labels, gamma=0.1, plot=True
+# )
 
-linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-gaussian_svm_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
-)
+# linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
+# quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
+# gaussian_svm_model(
+#     training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
+# )

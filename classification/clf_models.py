@@ -5,7 +5,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.svm import SVC
 
-from utils import plot_decision_boundary, score
+from ml_playground.utils import plot_decision_boundary, score
 
 
 def linear_lr_model(training_data, training_labels, test_data, test_labels, plot=False):

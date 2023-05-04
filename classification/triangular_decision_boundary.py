@@ -1,6 +1,6 @@
 import random
 
-from clf_models import (
+from .clf_models import (
     gaussian_lr_model,
     gaussian_svm_model,
     linear_lr_model,
