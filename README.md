@@ -20,7 +20,7 @@ Quadratic generalizes better though to points outside the training set
 
 ## Double Decision Boundary
 <img width="560" alt="image" src="https://user-images.githubusercontent.com/10254642/236089913-e0a8434b-5f0f-4511-a8c0-3151c37d8b9a.png">
-Gaussian was the best one that can classify. It was important to choose the right gamma for this to work. 
+Gaussian was the only one that can classify it. It was important to choose the right gamma for this to work. 
 
 ## Hyperbola Decision Boundary
 <img width="594" alt="image" src="https://user-images.githubusercontent.com/10254642/236091342-d67503ea-5ac9-4e7c-87c1-6e0f32bf03a4.png">
