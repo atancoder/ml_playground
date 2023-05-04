@@ -20,3 +20,6 @@ Quadratic generalizes better though to points outside the training set
 
 ## Observations
 Logistic Regression vs SVM performs very similarly. What's more important is how we model the data. Is it linear, polynomial, or do we use RBF?
+
+StandardScaler was messing up accuracy in both quadratic models. The fix was on the data generation, making sure both features had the same 
+range and that we used floats, instead of just integers
