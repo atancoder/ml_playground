@@ -1,5 +1,5 @@
 from sklearn.kernel_approximation import RBFSampler
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 
@@ -30,6 +30,21 @@ def gaussian_regression_model(
             ("scaler", StandardScaler()),
             ("kernel", RBFSampler(gamma=gamma)),
             ("clf", LinearRegression()),
+        ]
+    )
+    pipeline.fit(training_data, training_labels)
+    score(pipeline.score, training_data, training_labels, test_data, test_labels)
+    plot_regression_line(training_data, training_labels, pipeline.predict)
+
+
+def gaussian_regularization_regression_model(
+    training_data, training_labels, test_data, test_labels, gamma, alpha
+):
+    pipeline = Pipeline(
+        [
+            ("scaler", StandardScaler()),
+            ("kernel", RBFSampler(gamma=gamma)),
+            ("clf", Ridge(alpha=alpha)),
         ]
     )
     pipeline.fit(training_data, training_labels)

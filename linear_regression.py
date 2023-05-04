@@ -2,6 +2,7 @@ import random
 
 from regression_models import (
     gaussian_regression_model,
+    gaussian_regularization_regression_model,
     linear_regression_model,
     quadratic_regression_model,
 )
@@ -27,8 +28,11 @@ def generate_train_data():
 
 training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
-linear_regression_model(training_data, training_labels, test_data, test_labels)
-quadratic_regression_model(training_data, training_labels, test_data, test_labels)
-gaussian_regression_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.1
+# linear_regression_model(training_data, training_labels, test_data, test_labels)
+# quadratic_regression_model(training_data, training_labels, test_data, test_labels)
+# gaussian_regression_model(
+#     training_data, training_labels, test_data, test_labels, gamma=0.1
+# )
+gaussian_regularization_regression_model(
+    training_data, training_labels, test_data, test_labels, gamma=0.1, alpha=0.001
 )

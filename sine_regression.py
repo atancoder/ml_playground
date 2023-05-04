@@ -1,3 +1,4 @@
+import math
 import random
 
 from regression_models import (
@@ -7,14 +8,9 @@ from regression_models import (
     quadratic_regression_model,
 )
 
-SECOND_DEGREE = -1
-FIRST_DEGREE = 7
-ZERO_DEGREE = 0
-
 
 def generate_label(x):
-    variance = random.uniform(-1, 1)
-    return SECOND_DEGREE * x**2 + FIRST_DEGREE * x + ZERO_DEGREE + variance
+    return math.sin(x)
 
 
 def generate_train_data():
@@ -27,13 +23,23 @@ def generate_train_data():
     return data, labels
 
 
+def generate_test_data():
+    data = []
+    labels = []
+    for _ in range(100):
+        x = random.uniform(-10, 20)
+        data.append((x,))
+        labels.append(generate_label(x))
+    return data, labels
+
+
 training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
 # linear_regression_model(training_data, training_labels, test_data, test_labels)
-quadratic_regression_model(training_data, training_labels, test_data, test_labels)
-# gaussian_regression_model(
-#     training_data, training_labels, test_data, test_labels, gamma=1
-# )
+# quadratic_regression_model(training_data, training_labels, test_data, test_labels)
+gaussian_regression_model(
+    training_data, training_labels, test_data, test_labels, gamma=1
+)
 gaussian_regularization_regression_model(
-    training_data, training_labels, test_data, test_labels, gamma=1, alpha=0.01
+    training_data, training_labels, test_data, test_labels, gamma=1, alpha=0.1
 )
