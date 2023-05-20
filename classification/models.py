@@ -1,12 +1,16 @@
 import os
 import sys
 
+import matplotlib.pyplot as plt
 import numpy as np
+from sklearn import tree
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.kernel_approximation import RBFSampler
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 # Get the parent directory of the script
 script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -15,7 +19,7 @@ sys.path.insert(0, parent_dir)
 from utils import plot_decision_boundary, score
 
 
-def linear_lr_model(training_data, training_labels, test_data, test_labels, plot=False):
+def linear_lr_model(training_data, training_labels, test_data, test_labels, plot=True):
     # linear model
     clf = LogisticRegression()
     clf.fit(training_data, training_labels)
@@ -33,7 +37,7 @@ def linear_lr_model(training_data, training_labels, test_data, test_labels, plot
 
 
 def quadratic_lr_model(
-    training_data, training_labels, test_data, test_labels, plot=False
+    training_data, training_labels, test_data, test_labels, plot=True
 ):
     pipeline = Pipeline(
         [
@@ -53,7 +57,7 @@ def quadratic_lr_model(
 
 
 def gaussian_lr_model(
-    training_data, training_labels, test_data, test_labels, gamma, plot=False
+    training_data, training_labels, test_data, test_labels, gamma, plot=True
 ):
     pipeline = Pipeline(
         [
@@ -68,9 +72,7 @@ def gaussian_lr_model(
         plot_decision_boundary(training_data, training_labels, pipeline.predict)
 
 
-def linear_svm_model(
-    training_data, training_labels, test_data, test_labels, plot=False
-):
+def linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True):
     model = SVC(kernel="linear")
     model.fit(training_data, training_labels)
     score(model.score, training_data, training_labels, test_data, test_labels)
@@ -79,7 +81,7 @@ def linear_svm_model(
 
 
 def quadratic_svm_model(
-    training_data, training_labels, test_data, test_labels, plot=False
+    training_data, training_labels, test_data, test_labels, plot=True
 ):
     pipeline = Pipeline(
         [
@@ -95,7 +97,7 @@ def quadratic_svm_model(
 
 
 def gaussian_svm_model(
-    training_data, training_labels, test_data, test_labels, gamma, plot=False
+    training_data, training_labels, test_data, test_labels, gamma, plot=True
 ):
     pipeline = Pipeline(
         [
@@ -108,3 +110,25 @@ def gaussian_svm_model(
     score(pipeline.score, training_data, training_labels, test_data, test_labels)
     if plot:
         plot_decision_boundary(training_data, training_labels, pipeline.predict)
+
+
+def decision_tree_model(
+    training_data, training_labels, test_data, test_labels, plot=True
+):
+    model = DecisionTreeClassifier()
+    model.fit(training_data, training_labels)
+    score(model.score, training_data, training_labels, test_data, test_labels)
+    if plot:
+        tree.plot_tree(model)
+        plt.show()
+        plot_decision_boundary(training_data, training_labels, model.predict)
+
+
+def random_forest_model(
+    training_data, training_labels, test_data, test_labels, plot=True
+):
+    model = RandomForestClassifier(n_estimators=100)
+    model.fit(training_data, training_labels)
+    score(model.score, training_data, training_labels, test_data, test_labels)
+    if plot:
+        plot_decision_boundary(training_data, training_labels, model.predict)

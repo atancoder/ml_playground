@@ -1,7 +1,6 @@
 import random
 
-from models import (gaussian_lr_model, gaussian_svm_model, linear_lr_model,
-                    linear_svm_model, quadratic_lr_model, quadratic_svm_model)
+from models import *
 
 """
 Quadratic fits into hyperbola
@@ -32,14 +31,14 @@ def generate_train_data():
 training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
 
-linear_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-quadratic_lr_model(training_data, training_labels, test_data, test_labels, plot=True)
-gaussian_lr_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.1, plot=True
-)
+data_args = (training_data, training_labels, test_data, test_labels)
 
-linear_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-quadratic_svm_model(training_data, training_labels, test_data, test_labels, plot=True)
-gaussian_svm_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.5, plot=True
-)
+# linear_lr_model(*data_args)
+# quadratic_lr_model(*data_args)
+# gaussian_lr_model(*data_args, gamma=0.1)
+
+# linear_svm_model(*data_args)
+# quadratic_svm_model(*data_args)
+# gaussian_svm_model(*data_args, gamma=0.5)
+decision_tree_model(*data_args)
+random_forest_model(*data_args)

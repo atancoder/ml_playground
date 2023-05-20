@@ -1,11 +1,6 @@
 import random
 
-from models import (
-    gaussian_regression_model,
-    gaussian_regularization_regression_model,
-    linear_regression_model,
-    quadratic_regression_model,
-)
+from models import *
 
 SLOPE = 3
 INTERCEPT = 2
@@ -28,11 +23,12 @@ def generate_train_data():
 
 training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
-# linear_regression_model(training_data, training_labels, test_data, test_labels)
-# quadratic_regression_model(training_data, training_labels, test_data, test_labels)
+
+data_args = (training_data, training_labels, test_data, test_labels)
+
+# linear_regression_model(*data_args)
+# quadratic_regression_model(*data_args)
 # gaussian_regression_model(
-#     training_data, training_labels, test_data, test_labels, gamma=0.1
+#     *data_args, gamma=0.1
 # )
-gaussian_regularization_regression_model(
-    training_data, training_labels, test_data, test_labels, gamma=0.1, alpha=0.001
-)
+gaussian_regularization_regression_model(*data_args, gamma=0.1, alpha=0.001)

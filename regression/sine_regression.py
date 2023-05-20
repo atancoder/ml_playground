@@ -1,12 +1,7 @@
 import math
 import random
 
-from models import (
-    gaussian_regression_model,
-    gaussian_regularization_regression_model,
-    linear_regression_model,
-    quadratic_regression_model,
-)
+from models import *
 
 
 def generate_label(x):
@@ -35,11 +30,10 @@ def generate_test_data():
 
 training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
-# linear_regression_model(training_data, training_labels, test_data, test_labels)
-# quadratic_regression_model(training_data, training_labels, test_data, test_labels)
-gaussian_regression_model(
-    training_data, training_labels, test_data, test_labels, gamma=1
-)
-gaussian_regularization_regression_model(
-    training_data, training_labels, test_data, test_labels, gamma=1, alpha=0.1
-)
+
+data_args = (training_data, training_labels, test_data, test_labels)
+
+# linear_regression_model(*data_args)
+# quadratic_regression_model(*data_args)
+gaussian_regression_model(*data_args, gamma=1)
+gaussian_regularization_regression_model(*data_args, gamma=1, alpha=0.1)
