@@ -1,3 +1,6 @@
+import os
+import sys
+
 import numpy as np
 from sklearn.kernel_approximation import RBFSampler
 from sklearn.linear_model import LogisticRegression
@@ -5,6 +8,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import PolynomialFeatures, StandardScaler
 from sklearn.svm import SVC
 
+# Get the parent directory of the script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.join(script_dir, "..")
+sys.path.insert(0, parent_dir)
 from utils import plot_decision_boundary, score
 
 
