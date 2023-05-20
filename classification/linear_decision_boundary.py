@@ -1,13 +1,7 @@
 import random
 
-from clf_models import (
-    gaussian_lr_model,
-    gaussian_svm_model,
-    linear_lr_model,
-    linear_svm_model,
-    quadratic_lr_model,
-    quadratic_svm_model,
-)
+from models import (gaussian_lr_model, gaussian_svm_model, linear_lr_model,
+                    linear_svm_model, quadratic_lr_model, quadratic_svm_model)
 
 """
 Quadratic fits into hyperbola

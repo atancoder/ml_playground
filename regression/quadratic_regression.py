@@ -1,6 +1,6 @@
 import random
 
-from regression_models import (
+from models import (
     gaussian_regression_model,
     gaussian_regularization_regression_model,
     linear_regression_model,
