@@ -52,9 +52,13 @@ Quadratic fits it perfectly.
 
 <img width="594" alt="image" src="https://user-images.githubusercontent.com/10254642/236091342-d67503ea-5ac9-4e7c-87c1-6e0f32bf03a4.png">
 
-Gaussian did as well
+Gaussian can fits, but looks like it overfitted
 
 <img width="536" alt="image" src="https://user-images.githubusercontent.com/10254642/236091381-4f974222-b55c-4e81-ab75-2e200d80c69c.png">
+
+Decision trees can fit 
+
+<img width="563" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/dec1170f-5fc7-4f57-a9cc-4cf112a103ae">
 
 ## Observations
 Logistic Regression vs SVM performs very similarly. What's more important is how we model the data. Is it linear, polynomial, or do we use RBF? It seems like using RBF is a safe choice, as it fits the data very well in all shapes and sizes. The problem with using RBF is that it doesn't generalize well to data outside our training set range. It's also much harder to deduce the real pattern of the data (vs in a linear model, we can say what features most contribute to the classifier). 
