@@ -23,19 +23,21 @@ Gaussian doesn't generalize
 <img width="576" alt="image" src="https://user-images.githubusercontent.com/10254642/236103143-8809920a-958e-4381-8ad5-26c3103beda3.png">
 
 But adding regularization helps
+
 <img width="578" alt="image" src="https://user-images.githubusercontent.com/10254642/236104547-087c3a99-ff4d-4243-af91-53500c498dbc.png">
 
 
 ## Log Regression
-Gaussian fits perfectly. 
-
-<img width="553" alt="image" src="https://user-images.githubusercontent.com/10254642/236100898-ee6a85e0-61c0-4893-a118-fd2cc8ce8308.png">
 
 Quadratic isn't accurate
 
 <img width="553" alt="image" src="https://user-images.githubusercontent.com/10254642/236100975-0f28af19-28dd-4154-ad4b-2f8f77dd1503.png">
 
 Gaussian doesn't generalize
+
+<img width="568" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/3f3233dd-891c-40a4-8176-5c0a3b2c31db">
+
+Guassian w/ regularization
 
 <img width="562" alt="image" src="https://user-images.githubusercontent.com/10254642/236102848-0a40bf34-40fe-45b8-aae1-925c580b79ea.png">
 
