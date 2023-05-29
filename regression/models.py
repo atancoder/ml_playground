@@ -3,6 +3,7 @@ import os
 # need to import utils
 import sys
 
+import numpy as np
 from sklearn.kernel_approximation import RBFSampler
 from sklearn.linear_model import LinearRegression, Ridge
 from sklearn.pipeline import Pipeline
@@ -59,3 +60,14 @@ def gaussian_regularization_regression_model(
     pipeline.fit(training_data, training_labels)
     score(pipeline.score, training_data, training_labels, test_data, test_labels)
     plot_regression_line(training_data, training_labels, pipeline.predict)
+
+
+def power_law_model(training_data, training_labels, test_data, test_labels):
+    np_training_data = np.log(np.array(training_data))
+    np_training_labels = np.log(np.array(training_labels))
+    np_test_data = np.log(np.array(test_data))
+    np_test_labels = np.log(np.array(test_labels))
+
+    linear_regression_model(
+        np_training_data, np_training_labels, np_test_data, np_test_labels
+    )
