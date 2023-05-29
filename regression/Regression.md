@@ -43,6 +43,8 @@ Guassian w/ regularization
 
 I tried playing around with regularization but I couldn't find parameters that would result in a good fit. The ideal solution would be to transform the data points yourself into log(x) and fit a linear classifier through that.
 
+Project x and y into log()
+
 <img width="604" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/daa0d2de-f72b-4bf3-b2f6-1e5353192fb3">
 
 ## Sine Regression
