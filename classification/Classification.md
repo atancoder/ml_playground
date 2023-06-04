@@ -5,27 +5,19 @@ Linear logistic regression. But all clf_models were able to separate the data ve
 <img width="562" alt="image" src="https://user-images.githubusercontent.com/10254642/236076600-2cc3ab68-a1dd-4de7-bb25-a5a30e009e0f.png">
 
 ## Rectangle Decision Boundary
+
+**Best: Decision Tree**
+
+Makes sense because that's how the data was constructed
+
+<img width="582" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/73fae7ab-9e41-43ff-9c63-25e7bc151689">
+
 Quadratics approximate these quite well.
 Polynomial logistic regression w/ degree=2
 
 <img width="291" alt="image" src="https://user-images.githubusercontent.com/10254642/236064122-d777a8ea-6b6c-4e3c-8005-515cc65ccb67.png">
 
 <img width="570" alt="image" src="https://user-images.githubusercontent.com/10254642/236093494-7a409be0-a245-4a5f-af9e-f1bd301a72ee.png">
-
-
-But decision trees capture it the best, which makes sense because that's how the data was constructed
-
-<img width="582" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/73fae7ab-9e41-43ff-9c63-25e7bc151689">
-
-## Quadratic Decision Boundary W/ 1 Feature
-1D feature where we positively classify if 3 <= x <= 8
-
-We're able to get the following decision boundary with a polynomial kernel w/ degree = 2. 
-
-![image](https://user-images.githubusercontent.com/10254642/236303035-3b019a4c-52aa-4928-8789-2f076c8cb67c.png)
-
-This shows us that quadratic kernels are pretty good at classifying features that have a sweet spot (in this case, x=[3,8] was a sweet spot). 
-
 
 ## Triangular Decision Boundary
 Guassian logistic regression
@@ -36,8 +28,13 @@ Quadratic generalizes better though to points outside the training set
 
 <img width="577" alt="image" src="https://user-images.githubusercontent.com/10254642/236077243-dfb84944-e597-47f7-972c-73c613c1a929.png">
 
+Deicison Trees don't fare well. Likely because they don't have any linear properties to imitate a slope
+
+<img width="309" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/07c6eb17-32e2-4a5f-9b98-d70f563bf768">
+
+
 ## Double Rectangle Decision Boundary
-Decision Tree
+**Best: Decision Tree**
 
 <img width="571" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/63ac2f07-1def-4a59-b66a-ac9588396d0e">
 
@@ -48,7 +45,7 @@ Gaussian can also classify it but it was important to choose the right gamma for
 No other models are able to capture the partitioned dataset
 
 ## Hyperbola Decision Boundary
-Quadratic fits it perfectly.
+**Best: Quadratic**
 
 <img width="594" alt="image" src="https://user-images.githubusercontent.com/10254642/236091342-d67503ea-5ac9-4e7c-87c1-6e0f32bf03a4.png">
 
@@ -58,7 +55,18 @@ Gaussian can fits, but looks like it overfitted
 
 Decision trees can fit 
 
+
+## Quadratic Decision Boundary W/ 1 Feature
+1D feature where we positively classify if 3 <= x <= 8
+
+We're able to get the following decision boundary with a polynomial kernel w/ degree = 2. Where y values > 0 => positive prediction.
+
+![image](https://user-images.githubusercontent.com/10254642/236303035-3b019a4c-52aa-4928-8789-2f076c8cb67c.png)
+
+This shows us that quadratic kernels are pretty good at classifying features that have a sweet spot (in this case, x=[3,8] was a sweet spot). 
+
 <img width="563" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/dec1170f-5fc7-4f57-a9cc-4cf112a103ae">
+
 
 ## Observations
 Logistic Regression vs SVM performs very similarly. What's more important is how we model the data. Is it linear, polynomial, or do we use RBF? It seems like using RBF is a safe choice, as it fits the data very well in all shapes and sizes. The problem with using RBF is that it doesn't generalize well to data outside our training set range. It's also much harder to deduce the real pattern of the data (vs in a linear model, we can say what features most contribute to the classifier). 
