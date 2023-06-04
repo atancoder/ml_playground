@@ -4,12 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, precision_score, recall_score
-from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.losses import BinaryCrossentropy
 from tensorflow.keras.optimizers.legacy import Adam
-from tensorflow.nn import sigmoid
 
-from utils import plot_decision_boundary
+from utils import plot_decision_boundary, score
 
 
 def predict_with_threshold(model, input_data, threshold=0.5):
@@ -34,24 +32,18 @@ def relu_neural_net(training_data, training_labels, test_data, test_labels, plot
     )
     model.fit(training_data, training_labels, epochs=100)
     print_weights(model)
-    score(model, training_data, training_labels, test_data, test_labels)
+    score(
+        partial(predict_with_threshold, model),
+        training_data,
+        training_labels,
+        test_data,
+        test_labels,
+    )
 
     if plot:
         plot_decision_boundary(
             training_data, training_labels, partial(predict_with_threshold, model)
         )
-
-
-def score(model, training_data, training_labels, test_data, test_labels):
-    # We have to create our own score b/c the model doesn't naturally apply the threshold
-    score_types = [accuracy_score, precision_score, recall_score]
-    for score_type in score_types:
-        training_score = score_type(
-            training_labels, predict_with_threshold(model, training_data)
-        )
-        test_score = score_type(test_labels, predict_with_threshold(model, test_data))
-        print(f"Training {score_type.__name__}: ", training_score)
-        print(f"Test {score_type.__name__}: ", test_score)
 
 
 def print_weights(model):

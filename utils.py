@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn.metrics import accuracy_score, precision_score, recall_score
 
 
 def plot_decision_boundary(X, y, predict_fn):
@@ -36,20 +37,11 @@ def plot_decision_boundary(X, y, predict_fn):
     plt.show()
 
 
-def plot_regression_line(training_data, training_labels, predict_fn):
-    # Plot the data points
-    X = np.array(training_data)
-    y = np.array(training_labels)
-    plt.scatter(X, y)
-    x1_min = X.min() - 5
-    x1_max = X.max() + 5
-    xx1 = np.linspace(x1_min, x1_max, 100)
-    plt.plot(xx1, predict_fn(xx1.reshape(len(xx1), 1)), c="red")
-    plt.show()
-
-
-def score(score_fn, training_data, training_labels, test_data, test_labels):
-    training_accuracy = score_fn(training_data, training_labels)
-    test_accuracy = score_fn(test_data, test_labels)
-    print("Training Accuracy: ", training_accuracy)
-    print("Test Accuracy: ", test_accuracy)
+def score(model_predict_fn, training_data, training_labels, test_data, test_labels):
+    # We have to create our own score b/c the model doesn't naturally apply the threshold
+    score_types = [accuracy_score, precision_score, recall_score]
+    for score_type in score_types:
+        training_score = score_type(training_labels, model_predict_fn(training_data))
+        test_score = score_type(test_labels, model_predict_fn(test_data))
+        print(f"Training {score_type.__name__}: ", training_score)
+        print(f"Test {score_type.__name__}: ", test_score)

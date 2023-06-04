@@ -33,7 +33,7 @@ data_args = (training_data, training_labels, test_data, test_labels)
 
 
 # linear_lr_model(*data_args)
-# quadratic_lr_model(*data_args)
+quadratic_lr_model(*data_args)
 # gaussian_lr_model(*data_args, gamma=6)
 
 # # returns nothing b/c it's not linearly separable

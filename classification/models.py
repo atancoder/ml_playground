@@ -31,7 +31,7 @@ def linear_lr_model(training_data, training_labels, test_data, test_labels, plot
     new_intercept = -intercept / weights[1]
     print(f"Formula is y = {slope}x + {new_intercept}")
 
-    score(clf.score, training_data, training_labels, test_data, test_labels)
+    score(clf.predict, training_data, training_labels, test_data, test_labels)
     if plot:
         plot_decision_boundary(training_data, training_labels, clf.predict)
 
@@ -51,7 +51,7 @@ def quadratic_lr_model(
     intercept = pipeline.named_steps["clf"].intercept_[0]
     print("Weights: ", weights)
     print("Intercept: ", intercept)
-    score(pipeline.score, training_data, training_labels, test_data, test_labels)
+    score(pipeline.predict, training_data, training_labels, test_data, test_labels)
     if plot:
         plot_decision_boundary(training_data, training_labels, pipeline.predict)
 
@@ -67,7 +67,7 @@ def gaussian_lr_model(
         ]
     )
     pipeline.fit(training_data, training_labels)
-    score(pipeline.score, training_data, training_labels, test_data, test_labels)
+    score(pipeline.predict, training_data, training_labels, test_data, test_labels)
     if plot:
         plot_decision_boundary(training_data, training_labels, pipeline.predict)
 
@@ -91,7 +91,7 @@ def quadratic_svm_model(
         ]
     )
     pipeline.fit(training_data, training_labels)
-    score(pipeline.score, training_data, training_labels, test_data, test_labels)
+    score(pipeline.predict, training_data, training_labels, test_data, test_labels)
     if plot:
         plot_decision_boundary(training_data, training_labels, pipeline.predict)
 
@@ -107,7 +107,7 @@ def gaussian_svm_model(
         ]
     )
     pipeline.fit(training_data, training_labels)
-    score(pipeline.score, training_data, training_labels, test_data, test_labels)
+    score(pipeline.predict, training_data, training_labels, test_data, test_labels)
     if plot:
         plot_decision_boundary(training_data, training_labels, pipeline.predict)
 
