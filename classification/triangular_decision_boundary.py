@@ -1,6 +1,8 @@
 import random
 
+import numpy as np
 from models import *
+from neural_network_models import *
 
 A_SLOPE, A_INTERCEPT = 2, -1
 B_SLOPE, B_INTERCEPT = -2, 10
@@ -21,22 +23,8 @@ def generate_train_data():
             labels.append(1)
         else:
             labels.append(0)
-    return data, labels
+    return np.array(data), np.array(labels).reshape(-1, 1)
 
-
-# def generate_test_data():
-#     # test data is more specific to tailor around X, Y boundaries
-#     data = []
-#     labels = []
-#     for _ in range(100):
-#         x = random.randint(X_MIN_BOUNDARY, X_MAX_BOUNDARY)
-#         y = random.randint(Y_MIN_BOUNDARY, Y_MAX_BOUNDARY)
-#         data.append((x, y))
-#         if in_range(x, y):
-#             labels.append(1)
-#         else:
-#             labels.append(0)
-#     return data, labels
 
 training_data, training_labels = generate_train_data()
 test_data, test_labels = generate_train_data()
@@ -51,5 +39,6 @@ data_args = (training_data, training_labels, test_data, test_labels)
 # linear_svm_model(*data_args)
 # quadratic_svm_model(*data_args)
 # gaussian_svm_model(*data_args, gamma=0.5)
-decision_tree_model(*data_args)
-random_forest_model(*data_args)
+# decision_tree_model(*data_args)
+# random_forest_model(*data_args)
+relu_neural_net(*data_args)

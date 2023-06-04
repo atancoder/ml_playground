@@ -2,19 +2,36 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def plot_decision_boundary(training_data, training_labels, predict_fn):
+def plot_decision_boundary(X, y, predict_fn):
+    x1 = X[:, 0]
+    x2 = X[:, 1]
     # Plot the data points
-    X = np.array(training_data)
-    y = np.array(training_labels)
-    plt.scatter(X[:, 0], X[:, 1], c=y, cmap="viridis")
-    x1_min, x1_max = X[:, 0].min() - 5, X[:, 0].max() + 5
-    x2_min, x2_max = X[:, 1].min() - 5, X[:, 1].max() + 5
-    xx1, xx2 = np.meshgrid(
-        np.linspace(x1_min, x1_max, 100), np.linspace(x2_min, x2_max, 100)
-    )
-    Z = predict_fn(np.c_[xx1.ravel(), xx2.ravel()])
-    Z = Z.reshape(xx1.shape)
-    plt.contour(xx1, xx2, Z, colors="k", levels=[0])
+    plt.scatter(x1, x2, c=y, cmap="bwr")
+
+    x1_min, x1_max = min(x1), max(x1)
+    x2_min, x2_max = min(x2), max(x2)
+    x1_linspace = np.linspace(x1_min - 5, x1_max + 5, num=100)
+    x2_linspace = np.linspace(x2_min - 5, x2_max + 5, num=100)
+
+    # meshgrid gives us 2 2D arrays, where we can get a coordinate
+    # i,j with X[i][j], Y[i][j]
+    X, Y = np.meshgrid(x1_linspace, x2_linspace)
+
+    # We have to unravel into a rows X 2 matrix for predictions
+    coordinates = []
+    for i in range(len(X)):
+        for j in range(len(X[0])):
+            coordinates.append((X[i][j], Y[i][j]))
+    coordinates = np.array(coordinates)
+    Z = predict_fn(coordinates)
+
+    # Reshape Z into a meshgrid matrix
+    Z = Z.reshape(len(X), len(X[0]))
+
+    # plot contour
+    plt.contour(X, Y, Z, levels=[0], colors="black")
+
+    # Make a prediction on a bunch of training points. Project points with Z(x) = 1 onto the 2D plot
 
     plt.show()
 

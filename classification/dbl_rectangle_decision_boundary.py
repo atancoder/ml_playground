@@ -1,6 +1,7 @@
 import random
 
 from models import *
+from neural_network_models import *
 
 X1_MIN_BOUNDARY = 3
 X1_MAX_BOUNDARY = 8
@@ -34,7 +35,7 @@ def generate_train_data():
             labels.append(1)
         else:
             labels.append(0)
-    return data, labels
+    return np.array(data), np.array(labels).reshape(-1, 1)
 
 
 def generate_test_data():
@@ -49,7 +50,7 @@ def generate_test_data():
             labels.append(1)
         else:
             labels.append(0)
-    return data, labels
+    return np.array(data), np.array(labels).reshape(-1, 1)
 
 
 training_data, training_labels = generate_train_data()
@@ -66,5 +67,6 @@ data_args = (training_data, training_labels, test_data, test_labels)
 # linear_svm_model(*data_args)
 # quadratic_svm_model(*data_args)
 # gaussian_svm_model(*data_args, gamma=6)
-decision_tree_model(*data_args)
-random_forest_model(*data_args)
+# decision_tree_model(*data_args)
+# random_forest_model(*data_args)
+relu_neural_net(*data_args)
