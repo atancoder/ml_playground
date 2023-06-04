@@ -20,6 +20,21 @@ Polynomial logistic regression w/ degree=2
 <img width="570" alt="image" src="https://user-images.githubusercontent.com/10254642/236093494-7a409be0-a245-4a5f-af9e-f1bd301a72ee.png">
 
 ## Triangular Decision Boundary
+
+**Best: Neural Network w/ ReLu Activation**
+```
+model = tf.keras.Sequential(
+      [
+          tf.keras.layers.Dense(units=3, activation="relu"),
+          tf.keras.layers.Dense(units=1, activation="sigmoid"),
+      ]
+  )
+```
+Ran over 300 epochs. You need a minimum of 3 units to fit this decision boundary. There are also some rare runs where NN gets stuck in a local minima and doesn't fit the data at all.
+    
+<img width="590" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/0d900746-4710-4f7d-aca2-36afff4dc3bb">
+
+
 Guassian logistic regression
 
 <img width="578" alt="image" src="https://user-images.githubusercontent.com/10254642/236077022-fbff4c53-32f6-4d5c-8262-29c41a221fa4.png">
