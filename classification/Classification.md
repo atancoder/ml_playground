@@ -57,6 +57,14 @@ Gaussian can also classify it but it was important to choose the right gamma for
 
 <img width="560" alt="image" src="https://user-images.githubusercontent.com/10254642/236089913-e0a8434b-5f0f-4511-a8c0-3151c37d8b9a.png">
 
+Nerual Network 
+
+Needed multilayer to capture
+Layer1: 100 units. Layer 2: 30 units. Layer 3: 1 unit (sigmoid)
+
+<img width="560" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/7c5815ca-bc41-49fe-80f8-6f8ff042fd76">
+
+
 No other models are able to capture the partitioned dataset
 
 ## Hyperbola Decision Boundary
@@ -64,12 +72,18 @@ No other models are able to capture the partitioned dataset
 
 <img width="594" alt="image" src="https://user-images.githubusercontent.com/10254642/236091342-d67503ea-5ac9-4e7c-87c1-6e0f32bf03a4.png">
 
+ReLu Neural Net
+Only 2 layers: Layer 1 w/ 5 units
+
+<img width="572" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/a69c56a9-3181-4b7b-bb3e-1eccc092fe2f">
+
 Gaussian can fits, but looks like it overfitted
 
 <img width="536" alt="image" src="https://user-images.githubusercontent.com/10254642/236091381-4f974222-b55c-4e81-ab75-2e200d80c69c.png">
 
 Decision trees can fit 
 
+<img width="563" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/dec1170f-5fc7-4f57-a9cc-4cf112a103ae">
 
 ## Quadratic Decision Boundary W/ 1 Feature
 1D feature where we positively classify if 3 <= x <= 8
@@ -80,11 +94,11 @@ We're able to get the following decision boundary with a polynomial kernel w/ de
 
 This shows us that quadratic kernels are pretty good at classifying features that have a sweet spot (in this case, x=[3,8] was a sweet spot). 
 
-<img width="563" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/dec1170f-5fc7-4f57-a9cc-4cf112a103ae">
-
 
 ## Observations
 Logistic Regression vs SVM performs very similarly. What's more important is how we model the data. Is it linear, polynomial, or do we use RBF? It seems like using RBF is a safe choice, as it fits the data very well in all shapes and sizes. The problem with using RBF is that it doesn't generalize well to data outside our training set range. It's also much harder to deduce the real pattern of the data (vs in a linear model, we can say what features most contribute to the classifier). 
 
 StandardScaler was messing up accuracy in both quadratic models. The fix was on the data generation, making sure both features had the same 
 range and that we used floats, instead of just integers
+
+Nerual nets can fit pretty much everything, but you just have to modify the architecture to get it right. However, neural nets haven't shown to converge consistently, leading to different results
