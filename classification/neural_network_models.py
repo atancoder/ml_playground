@@ -4,14 +4,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 from sklearn.metrics import accuracy_score, precision_score, recall_score
-from tensorflow.keras.losses import BinaryCrossentropy
-from tensorflow.keras.optimizers.legacy import Adam
+from tensorflow.keras.losses import BinaryCrossentropy  # type: ignore
+from tensorflow.keras.optimizers.legacy import Adam  # type: ignore
 
 from utils import plot_decision_boundary, score
 
 
 def predict_with_threshold(model, input_data, threshold=0.5):
-    return (model.predict(input_data) > threshold).astype(int)
+    probabilities = tf.nn.sigmoid(model.predict(input_data)).numpy()
+    return (probabilities > threshold).astype(int)
 
 
 def relu_neural_net(training_data, training_labels, test_data, test_labels, plot=True):
@@ -23,15 +24,14 @@ def relu_neural_net(training_data, training_labels, test_data, test_labels, plot
     model = tf.keras.Sequential(
         [
             tf.keras.layers.Dense(units=5, activation="relu"),
-            tf.keras.layers.Dense(units=1, activation="sigmoid"),
+            tf.keras.layers.Dense(units=1, activation="linear"),
         ]
     )
     model.compile(
-        loss=BinaryCrossentropy(),
+        loss=BinaryCrossentropy(from_logits=True),
         optimizer=Adam(learning_rate=0.01),
     )
     model.fit(training_data, training_labels, epochs=100)
-    print_weights(model)
     score(
         partial(predict_with_threshold, model),
         training_data,
