@@ -59,8 +59,8 @@ Gaussian can also classify it but it was important to choose the right gamma for
 
 Nerual Network 
 
-Needed multilayer to capture
-Layer1: 100 units. Layer 2: 30 units. Layer 3: 1 unit (sigmoid)
+Needed comoplex multilayer and sigmoid activation (relu can't capture multiple decision boundaries)
+Layer1: 120 units. Layer 2: 40 units. Layer 3: 1 unit 
 
 <img width="560" alt="image" src="https://github.com/atancoder/ml_playground/assets/10254642/7c5815ca-bc41-49fe-80f8-6f8ff042fd76">
 
