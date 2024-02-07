@@ -1,3 +1,3 @@
 # ml_playground
 
-Testing how models perform against certain data patterns
+Testing how different ML models perform against certain data patterns
